@@ -5,6 +5,7 @@ import com.mark.entity.BookVO;
 import com.mark.service.IBookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,11 +46,23 @@ public class BookController {
         model.setViewName("addOrUpdateBook");
         return model;
     }
+    @RequestMapping(value = "/searchBook", method = RequestMethod.GET)
+    public ModelAndView serachBook(ModelAndView model) {
+        model.setViewName("searchBook");
+        return model;
+    }
 
     @RequestMapping(value = "saveOrUpdateBook", method = RequestMethod.POST)
     public ModelAndView saveOrUpdateBook(@ModelAttribute BookVO book) {
+        System.out.println(book.getBookAuthor());
+        System.out.println(book.getBookName());
         bookService.saveOrUpdateBook(book);
         return new ModelAndView("operationSuccess");
+    }
+    @RequestMapping(value = "searcShowhBook", method = RequestMethod.POST)
+    public ModelAndView searchShowBook(ModelAndView model) {
+//        List<BookVO> books = bookService.searchShowBook();
+        return null;
     }
 
     @RequestMapping(value = "modifyBook", method = RequestMethod.GET)

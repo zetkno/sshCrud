@@ -36,5 +36,6 @@
 </table>
 <br />
 <a href="<c:url value='/book/newBook' />">添加图书</a>
+<a href="<c:url value='/book/searchBook' />">查找图书</a>
 </body>
 </html>

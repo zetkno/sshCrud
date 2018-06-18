@@ -14,11 +14,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>新增/修改图书</title>
+    <title>查找图书</title>
 </head>
 <body>
-<h3>新增/修改图书</h3>
-<form:form action="saveOrUpdateBook" method="post">
+<h3>查找图书</h3>
+<form:form action="searchShowBook" method="post">
     <table>
         <form:hidden path="id" />
         <tr>
@@ -26,12 +26,7 @@
             <td><form:input path="bookName" /></td>
         </tr>
         <tr>
-            <td>作者：</td>
-            <td><form:input path="bookAuthor" /></td>
-        </tr>
-
-        <tr>
-            <td><input type="submit" value="保存" /></td>
+            <td><input type="submit" value="查找" /></td>
         </tr>
     </table>
 </form:form>

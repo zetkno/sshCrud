@@ -25,6 +25,12 @@ public class BookServiceImpl implements IBookService {
     }
 
     @Override
+    public List<BookVO> getSearchBook() {
+
+        return bookDao.getSearchBook();
+    }
+
+    @Override
     public BookVO getBookById(int id) {
         return bookDao.getBookById(id);
     }

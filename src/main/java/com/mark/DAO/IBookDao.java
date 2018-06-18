@@ -11,4 +11,6 @@ public interface IBookDao {
         public BookVO getBookById(int id);
 
         public void deleteBookById(int id);
+
+    List<BookVO> getSearchBook();
 }

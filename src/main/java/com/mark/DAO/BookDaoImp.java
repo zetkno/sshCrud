@@ -1,4 +1,5 @@
 package com.mark.DAO;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.mark.entity.BookVO;
@@ -23,13 +24,18 @@ public class BookDaoImp implements IBookDao {
     @Override
     public List<BookVO> getBooks() {
         Session session = sessionFactory.getCurrentSession();
-
         SQLQuery query = session.createSQLQuery("select * from book").addEntity(BookVO.class);
         List<BookVO> list = query.list();
-
         //List<BookVO> list = session.createQuery(" from BookVO ").list();
 
         return list;
+    }
+    @Override
+    public List<BookVO> getSearchBook() {
+        Session session = sessionFactory.getCurrentSession();
+        SQLQuery query = session.createSQLQuery("SELECT * FROM book WHERE book_name like '%%' or book_author like '%%'");
+        List<BookVO> list = query.list();
+        return null;
     }
 
     @Override
@@ -60,4 +66,6 @@ public class BookDaoImp implements IBookDao {
         BookVO book = (BookVO) session.get(BookVO.class, id);
         session.delete(book);
     }
+
+
 }

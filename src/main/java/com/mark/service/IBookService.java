@@ -8,6 +8,8 @@ public interface IBookService {
 
     public List<BookVO> getBooks();
 
+    public List<BookVO> getSearchBook();
+
     public BookVO getBookById(int id);
 
     public void deleteBookById(int id);
